@@ -1,18 +1,32 @@
-<input type="number" id="num1">
-<input type="number" id="num2">
-<button onclick="addNumbers()">Add</button>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Two Numbers</title>
+</head>
 
-<p id="result"></p>
+<body>
+
+<h1>Add Two Numbers Program</h1>
+
+<label>Enter First Number:</label>
+<input type="number" id="num1"><br><br>
+
+<label>Enter Second Number:</label>
+<input type="number" id="num2"><br><br>
+
+<button onclick="addNumbers()">Add Numbers</button>
+
+<h2 id="result"></h2>
 
 <script>
-function addNumbers(){
-let a = document.getElementById("num1").value;
-let b = document.getElementById("num2").value;
+function addNumbers() {
+    var a = parseInt(document.getElementById("num1").value);
+    var b = parseInt(document.getElementById("num2").value);
+    var sum = a + b;
 
-fetch(`/add?num1=${a}&num2=${b}`)
-.then(res => res.json())
-.then(data => {
-document.getElementById("result").innerHTML = "Result: " + data.result;
-});
+    document.getElementById("result").innerHTML = "Result: " + sum;
 }
 </script>
+
+</body>
+</html>
