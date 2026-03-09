@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home Page</title>
-</head>
+<input type="number" id="num1">
+<input type="number" id="num2">
+<button onclick="addNumbers()">Add</button>
 
-<body>
-
-<h1>Home Page</h1>
-
-<button onclick="goToPage()">Open Program Page</button>
+<p id="result"></p>
 
 <script>
-function goToPage() {
-    window.location.href = "program.html";
+function addNumbers(){
+let a = document.getElementById("num1").value;
+let b = document.getElementById("num2").value;
+
+fetch(`/add?num1=${a}&num2=${b}`)
+.then(res => res.json())
+.then(data => {
+document.getElementById("result").innerHTML = "Result: " + data.result;
+});
 }
 </script>
-
-</body>
-</html>
